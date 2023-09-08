@@ -8,4 +8,8 @@ RSpec.describe "#Board" do
   it 'exists' do
     expect(@board).to be_instance_of Board
   end
+
+  it 'will return the state' do
+    
+  end
 end
