@@ -31,8 +31,8 @@ class Board
 end
 
 # Example usage
-board = Board.new
-board.display_board
+# board = Board.new
+# board.display_board
 
 
 
