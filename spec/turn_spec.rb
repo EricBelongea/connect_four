@@ -18,9 +18,15 @@ RSpec.describe "#Turn" do
   end
 
   it 'can select a column' do 
-    #require 'pry';binding.pry
+    #@turn.ask_for_move
     expect(@turn.player_turn(["A"])).to eq(["A"])
     expect(@turn.player_turn(['H'])).to eq("Input column A-G.")
+  end
+
+  xit 'can ask for move' do
+    #@turn.ask_for_move
+    #require 'pry';binding.pry
+    #expect(player_choice).to be_a(array)
   end
 
 end
