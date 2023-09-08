@@ -1,7 +1,7 @@
 require_relative 'cell'
 
 class Board
-  attr_reader :board
+  attr_accessor :board
 
   def initialize
     @board = default_board
@@ -14,9 +14,11 @@ class Board
       [cell.new, cell.new, cell.new, cell.new, cell.new, cell.new, cell.new],
       [cell.new, cell.new, cell.new, cell.new, cell.new, cell.new, cell.new],
       [cell.new, cell.new, cell.new, cell.new, cell.new, cell.new, cell.new],
-      [cell.new, cell.new, cell.new, cell.new, cell.new, cell.new, cell.new],
+      [cell.new, cell.new, cell.new, cell.new, cell.new, cell.new, cell.new]
     ]
     # puts "ABCDEFG"
     # puts board
   end
 end
+
+
