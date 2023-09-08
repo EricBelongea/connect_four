@@ -14,7 +14,7 @@ RSpec.describe "#Board" do
     expect(@board.default_board[0][0].class).to eq(Cell)
   end
 
-  it 'will display a board made of .' do
+  it "will display a board made of '.'" do
     # require'pry';binding.pry
     expect(@board.respond_to?('display_board')).to be true
     expect(@board.display_board[0][0].state).to eq('.')
