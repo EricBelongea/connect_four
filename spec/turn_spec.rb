@@ -19,8 +19,8 @@ RSpec.describe "#Turn" do
 
   it 'can select a column' do 
     #@turn.ask_for_move
-    expect(@turn.player_turn(["A"])).to eq(["A"])
-    expect(@turn.player_turn(['H'])).to eq("Input column A-G.")
+    expect(@turn.valid_column("A")).to be true
+    expect(@turn.valid_column('H')).to eq("Choose a cloumn between A-G.")
   end
 
   xit 'can ask for move' do
