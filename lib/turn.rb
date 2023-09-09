@@ -25,6 +25,7 @@ class Turn
       return "Input column A-G."
     end
   end
+  
   # def player_turn
   #   player_input = gets.chomp.upcase
   #   if valid_column(player_input) == true
