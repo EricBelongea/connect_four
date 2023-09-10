@@ -15,7 +15,7 @@ RSpec.describe "#Board" do
   end
 
   it "will display a board made of '.'" do
-    # require'pry';binding.pry
+    #require'pry';binding.pry
     expect(@board.respond_to?('display_board')).to be true
     expect(@board.display_board[0][0].state).to eq('.')
 
