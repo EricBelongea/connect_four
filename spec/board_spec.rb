@@ -16,7 +16,12 @@ RSpec.describe "#Board" do
   end
 
   it 'visual test to see board' do
-    # Works best with (rspec spec/board_spec ) -fd
+    # Works best with `rspec spec/board_spec -fd`
     @board.display_board
+  end
+
+  it 'can detect piece on board' do
+    @board.drop_disc(2, "x")
+    expect(@board.grid.flatten.include?("x")).to be true
   end
 end
