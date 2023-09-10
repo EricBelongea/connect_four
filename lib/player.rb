@@ -13,7 +13,7 @@ class Player
     integer = index_column(column)
     if valid_column(column) == true
       board.drop_disc(integer, @player_piece)
-    else valid_column(column) == false
+    else
       return "Please choose a column A-G."
     end
   end
