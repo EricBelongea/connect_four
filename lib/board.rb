@@ -96,8 +96,8 @@ class Board
       end
     end
     nil
-    #we will need to change return value from 'disc' to either
-    #'you won!' or 'you lost to a computer!'
+    #we will need to change return value from 'disc' in each check to either
+    #'you won!' or 'you lost!'
   end
 
 end
