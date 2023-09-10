@@ -1,16 +1,16 @@
 require './lib/cell'
 require './lib/board'
 require './lib/turn'
-
 RSpec.describe "#Turn" do
   before(:each) do
     @board = Board.new
-    @turn = Turn.new("Eric", @board)
+    @turn = Turn.new("Eric")
   end
 
   it 'exists' do
     expect(@turn).to be_instance_of Turn
   end
+  require 'pry';binding.pry
 
   it 'can turn hold attributes' do
     expect(@turn.player).to eq("Eric")

@@ -1,9 +1,8 @@
 class Turn
   attr_reader :player, :board
 
-  def initialize(player, board)
+  def initialize(player)
     @player = player
-    @board = board
     @columns = ["A", "B", "C", "D", "E", "F", "G"]
   end
 
@@ -15,17 +14,52 @@ class Turn
     end
   end
 
-  def player_turn(column = nil)
+  def player_turn(board)
     puts "#{@player}, choose which column A-G to place your piece"
     column = gets.chomp.upcase
-    column = column.split("")
     if valid_column(column) == true
-      return column
+      # drop piece method(column)
     else valid_column(column) == false
       return "Input column A-G."
     end
   end
-  
+
+  def drop_piece(column)
+    #use player input to find the column on the board
+    # column = index_column(column)
+    # @board[6][column]
+    # .index-1
+    #index that column to the bottom
+    #row then column
+    #if cell.state is '.', we change to 'x || o'
+    #else, board.index[-1]
+    @boards.each do |board|
+      board.default_board[0][0] = 'x'
+      board.display_board
+    end
+    #board needs to be instantiated as board class in this method
+    #board is part of Turn
+  end
+
+  def index_column(column)
+    if column == "A"
+      column = 0
+    elsif column == "B"
+      column = 1
+    elsif column == "C"
+      column = 2
+    elsif column == "D"
+      column = 3
+    elsif column == "E"
+      column = 4
+    elsif column == "F"
+      column = 5
+    else column == "G"
+      column = 6
+    end
+  end
+end
+
   # def player_turn
   #   player_input = gets.chomp.upcase
   #   if valid_column(player_input) == true
@@ -40,34 +74,27 @@ class Turn
   #   gets.chomp.upcase
   # end
 
-  def places_piece(player_input)
-    if valid_column(player_input) == true
-      @board
-    end
-  end
+#   def places_piece(player_input)
+#     if valid_column(player_input) == true
+#       @board
+#     end
+#   end
 
-  def letter_to_index
-    @
-  end
-end
+#   def letter_to_index
+#     @
+#   end
+# end
 
 # Validate column choice.
 #   This works as of rn.
 # How to get player input.
 #   Player piece == x
 #   Player_input = gets.chomp.upcase
-# How to iterate through the board to get to 
+# How to iterate through the board to get to
 #   the bottom of the board. A = @board[x][0]
      # I know that A will be the index 0 in a row
      # Save A to row.index[0]?
 # Get switch player to CPU and recieve their rand turn
-
-  
-
-
-
-
-
 
 # class Turn
 #   attr_reader :turn, :player, :board, :piece
@@ -124,7 +151,7 @@ end
 #   def computer_turn
 #     random
 #   end
- 
+
 #     # @board.each do |row|
 #     #   row.each do |cell|
 #     #     print cell.state
@@ -159,10 +186,9 @@ end
 # ##turn class, player class, computer class, game_runner class
 
 
-# #Your program should ask the user to enter a letter A-G. 
+# #Your program should ask the user to enter a letter A-G.
 # #Update the board to display the player’s piece in the lowest available position of the selected column with an ‘X’.
 
 # #The player and computer should be able to repeat this sequence and continue taking turns.
 # #LOOP turns UNTIL win condition
 
- 
