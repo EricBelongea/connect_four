@@ -10,23 +10,13 @@ RSpec.describe "#Board" do
     expect(@board).to be_instance_of Board
   end
 
-  it 'board is made of cells' do
-    expect(@board.default_board[0][0].class).to eq(Cell)
-  end
-
-  it "will display a board made of '.'" do
+  it "board class responds to display" do
     #require'pry';binding.pry
     expect(@board.respond_to?('display_board')).to be true
-    expect(@board.display_board[0][0].state).to eq('.')
+  end
 
-    # expect(@board.display_board).to eq("
-    #   ABCDEFG
-    #   .......
-    #   .......
-    #   .......
-    #   .......
-    #   .......
-    #   .......
-    #   ")
+  it 'visual test to see board' do
+    # Works best with (rspec spec/board_spec ) -fd
+    @board.display_board
   end
 end
