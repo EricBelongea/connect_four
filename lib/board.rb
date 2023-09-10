@@ -36,6 +36,10 @@ class Board
     @columns.include?(player_input)
   end
 
+  def check_full
+    @grid.flatten.none? { |cell| cell == '.' }
+  end
+
   def check_winner
     row, col = @last_move
     disc = @grid[row][col]
