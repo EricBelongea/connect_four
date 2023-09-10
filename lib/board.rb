@@ -20,9 +20,6 @@ class Board
   end
 
   def display_board
-    puts "Welcome to our Connect Four Game"
-    puts "--------------------------------"
-    puts " "
     puts "ABCDEFG"
     @grid.each do |row|
       row.each do |cell|

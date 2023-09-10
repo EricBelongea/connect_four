@@ -10,14 +10,14 @@ class Game
   def play
     puts "Welcome to our Connect Four Game"
     puts "--------------------------------"
-    puts "Press 'p' to play, or press 'q' to quit"
+    puts "Press 'P' to play, or press 'Q' to quit"
     wanna_play = gets.chomp.downcase
+    while wanna_play != 'p' || 'q'
+      puts "Press 'P' to play, or press 'Q' to quit"
+      wanna_play = gets.chomp.downcase
+    end
     if wanna_play == 'q'
-      break
-    elsif wanna_play == 'p'
-      next
-    else 
-      "That's not a valid input"
+      exit()
     end
     puts " "
     @board.display_board
