@@ -36,35 +36,68 @@ class Board
     @columns.include?(player_input)
   end
 
-  ## I moved the following methods into the player class. ###
+  def check_full
+    @grid.flatten.none? { |cell| cell == '.' }
+  end
 
-  # def player_turn
-  #   puts "#{@player}, choose which column A-G to place your piece"
-  #   column = gets.chomp.upcase
-  #   integer = index_column(column)
-  #   if valid_column(column) == true
-  #     p integer
-  #     # drop piece method(column, current_player.disc)
-  #   else valid_column(column) == false
-  #     return "Please choose a column A-G."
-  #   end
-  # end
+  def check_winner
+    row, col = @last_move
+    disc = @grid[row][col]
 
-  # def index_column(column)
-  #   if column == "A"
-  #     column = 0
-  #   elsif column == "B"
-  #     column = 1
-  #   elsif column == "C"
-  #     column = 2
-  #   elsif column == "D"
-  #     column = 3
-  #   elsif column == "E"
-  #     column = 4
-  #   elsif column == "F"
-  #     column = 5
-  #   else column == "G"
-  #     column = 6
-  #   end
-  # end
+    #this checks four in a row by column
+    count = 0
+    (col - 3..col + 3).each do |c|
+      break if c.negative? || c >= 7
+      if @grid[row][c] == disc
+        count += 1
+        return disc if count == 4
+      else
+        count = 0
+      end
+    end
+
+    #this checks four in a row by row
+    count = 0
+    6.times do |r|
+      break if r >= 6
+      if @grid[r][col] == disc
+        count += 1
+        return disc if count == 4
+      else
+        count = 0
+      end
+    end
+
+    #this checks four in a row by diagonal going upwards
+    count = 0
+    (row - 3..row + 3).each do |r|
+      c = col + (r - row)
+      break if r.negative? || r >= 6 || c.negative? || c >= 7
+
+      if @grid[r][c] == disc
+        count += 1
+        return disc if count == 4
+      else
+        count = 0
+      end
+    end
+
+    #this checks four in a row by diagonal going downwards
+    count = 0
+    (row - 3..row + 3).each do |r|
+      c = col - (r - row)
+      break if r.negative? || r >= 6 || c.negative? || c >= 7
+
+      if @grid[r][c] == disc
+        count += 1
+        return disc if count == 4
+      else
+        count = 0
+      end
+    end
+    nil
+    #we will need to change return value from 'disc' to either
+    #'you won!' or 'you lost to a computer!'
+  end
+
 end
