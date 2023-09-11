@@ -1,10 +1,14 @@
 require_relative 'board'
 require_relative 'player'
+require_relative 'computer'
 
 class Game
+  attr_accessor :player
 
   def initialize
     @board = Board.new
+    @player = Player.new(@board)
+    @computer = Computer.new(@board)
   end
 
   def play
@@ -12,20 +16,24 @@ class Game
     puts "--------------------------------"
     puts "Press 'P' to play, or press 'Q' to quit"
     wanna_play = gets.chomp.downcase
-    while wanna_play != 'p' || 'q'
+    while wanna_play != 'p' && wanna_play != 'q'
       puts "Press 'P' to play, or press 'Q' to quit"
       wanna_play = gets.chomp.downcase
     end
     if wanna_play == 'q'
       exit()
     end
+    puts "--------------------------------"
+    puts "Great! Here's the board you'll be
+          playing on."
     puts " "
     @board.display_board
     puts "Please enter your player name below"
-    @player.name = gets.chomp.capitalize
+    name = gets.chomp.capitalize
     loop do
-      puts "#{@player.name} it is your turn!"
-      @player.player_turn
+      puts "#{name} it's now your turn!"
+      # require'pry';binding.pry
+      @player.player_turn(@board)
       @board.display_board
       if @board.check_winner == 'x'
         puts "You Won!"
@@ -35,7 +43,7 @@ class Game
       end
 
       ###Computers turn###
-      @computer.computer_turn
+      @computer.computer_turn(@board)
       @board.display_board
       if @board.check_winner == 'o'
         puts "You Lost!"

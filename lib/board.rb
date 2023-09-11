@@ -1,4 +1,5 @@
 class Board
+  attr_reader :columns
   attr_accessor :grid, :last_move, :integer
 
   def initialize
