@@ -52,60 +52,77 @@ class Board
   end
 
   def check_winner
-    row, col = @last_move
-    disc = @grid[row][col]
-
-    #this checks four in a row by column
-    count = 0
-    (col - 3..col + 3).each do |c|
-      break if c.negative? || c >= 7
-      if @grid[row][c] == disc
-        count += 1
-        return disc if count == 4
-      else
-        count = 0
+    return check_horizontal || check_vertical || check_diagonal
+  end
+  
+  def check_horizontal
+    # Check for a horizontal win
+    @grid.each do |row|
+      count = 0
+      current_disc = nil
+  
+      row.each do |cell|
+        if cell == current_disc
+          count += 1
+          return current_disc if count == 4 && current_disc != '.'
+        else
+          current_disc = cell
+          count = 1
+        end
       end
     end
-
-    #this checks four in a row by row
-    count = 0
-    6.times do |r|
-      break if r >= 6
-      if @grid[r][col] == disc
-        count += 1
-        return disc if count == 4
-      else
-        count = 0
-      end
-    end
-
-    #this checks four in a row by diagonal going upwards
-    count = 0
-    (row - 3..row + 3).each do |r|
-      c = col + (r - row)
-      break if r.negative? || r >= 6 || c.negative? || c >= 7
-
-      if @grid[r][c] == disc
-        count += 1
-        return disc if count == 4
-      else
-        count = 0
-      end
-    end
-
-    #this checks four in a row by diagonal going downwards
-    count = 0
-    (row - 3..row + 3).each do |r|
-      c = col - (r - row)
-      break if r.negative? || r >= 6 || c.negative? || c >= 7
-
-      if @grid[r][c] == disc
-        count += 1
-        return disc if count == 4
-      else
-        count = 0
-      end
-    end
+  
     nil
   end
+  
+  def check_vertical
+    # Check for a vertical win
+    (0...7).each do |col|
+      count = 0
+      current_disc = nil
+  
+      @grid.each do |row|
+        if row[col] == current_disc
+          count += 1
+          return current_disc if count == 4 && current_disc != '.'
+        else
+          current_disc = row[col]
+          count = 1
+        end
+      end
+    end
+  
+    nil
+  end
+  
+  def check_diagonal
+    # Check diagonal wins in both directions
+  
+    # Check diagonal going downwards (left to right)
+    (0..2).each do |row|
+      (0..3).each do |col|
+        if @grid[row][col] != '.' &&
+           @grid[row][col] == @grid[row + 1][col + 1] &&
+           @grid[row][col] == @grid[row + 2][col + 2] &&
+           @grid[row][col] == @grid[row + 3][col + 3]
+          return @grid[row][col]
+        end
+      end
+    end
+  
+    # Check diagonal going upwards (left to right)
+    (3..5).each do |row|
+      (0..3).each do |col|
+        if @grid[row][col] != '.' &&
+           @grid[row][col] == @grid[row - 1][col + 1] &&
+           @grid[row][col] == @grid[row - 2][col + 2] &&
+           @grid[row][col] == @grid[row - 3][col + 3]
+          return @grid[row][col]
+        end
+      end
+    end
+  
+    nil
+  end
+   
 end
