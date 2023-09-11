@@ -9,6 +9,10 @@ class Board
     @integer = nil
   end
 
+  def default_board
+    @grid = Array.new(6) { Array.new(7, '.') }
+  end
+  
   def column_full(column)
     (0...6).reverse_each do |row|
       next unless @grid[row][column] == '.'
