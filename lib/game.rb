@@ -12,6 +12,7 @@ class Game
   end
 
   def play
+    @board.default_board
     puts "Welcome to our Connect Four Game"
     puts "--------------------------------"
     puts "Press 'P' to play, or press 'Q' to quit"
@@ -56,5 +57,6 @@ class Game
         break
       end
     end
+    play
   end
 end
