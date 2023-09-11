@@ -13,8 +13,15 @@ class Computer
     # puts "The computer will now make a turn."
     column = @board.columns.sample
     integer = index_column(column)
-    if @board.valid_column(column) == true
-      board.drop_disc(integer, @piece)
+    until @board.valid_column(column) == true
+      column = @board.columns.sample
     end
+    #if @board.valid_column(column) == true && @board.column_full(integer) == false
+    integer = index_column(column)
+    until @board.column_full(integer) == false
+      column = @board.columns.sample
+      integer = index_column(column)
+    end
+    board.drop_disc(integer, @piece)
   end
 end

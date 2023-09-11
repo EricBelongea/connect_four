@@ -9,21 +9,31 @@ class Board
     @integer = nil
   end
 
+  def column_full(column)
+    (0...6).reverse_each do |row|
+      next unless @grid[row][column] == '.'
+      if @grid [row][column] == '.'
+        return false
+      else
+        return true
+      end
+    end
+  end
+
   def drop_disc(column, disc)
     (0...6).reverse_each do |row|
       next unless @grid[row][column] == '.'
-
+      if @grid[row][column] != '.'
+        return false
+      else
       @grid[row][column] = disc
       @last_move = [row, column]
       return true
+      end
     end
-     return "This column is full, please choose another column."
   end
 
   def display_board
-    puts "Welcome to our Connect Four Game"
-    puts "--------------------------------"
-    puts " "
     puts "ABCDEFG"
     @grid.each do |row|
       row.each do |cell|
