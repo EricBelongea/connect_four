@@ -37,6 +37,7 @@ class Game
       @board.display_board
       if @board.check_winner == 'x'
         puts "You Won!"
+        break
       end
       if @board.check_full == true
         puts "Draw!"
@@ -47,6 +48,7 @@ class Game
       @board.display_board
       if @board.check_winner == 'o'
         puts "You Lost!"
+        break
       end
       if @board.check_full == true
         puts "Draw!"

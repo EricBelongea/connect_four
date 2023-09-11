@@ -10,7 +10,7 @@ class Computer
   end
 
   def computer_turn(board)
-    puts "The computer will now make a turn."
+    # puts "The computer will now make a turn."
     column = @board.columns.sample
     integer = index_column(column)
     if @board.valid_column(column) == true
