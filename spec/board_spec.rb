@@ -70,6 +70,19 @@ RSpec.describe "#Board set up" do
       expect(@board.check_winner).to eq('x')
     end
 
+    it 'horizontal failure' do
+      @board.drop_disc(0,'x')
+      @board.drop_disc(1,'x')
+      @board.drop_disc(2,'x')
+
+      expect(@board.check_winner).to be nil
+
+      @board.drop_disc(4, 'x')
+      expect(@board.check_winner).to be nil
+      @board.drop_disc(3, 'o')
+      expect(@board.check_winner).to be nil
+    end
+
     it 'horizontal row victory o' do
       @board.drop_disc(3,'o')
       @board.drop_disc(4,'o')
@@ -93,6 +106,19 @@ RSpec.describe "#Board set up" do
 
       @board.drop_disc(4, 'o')
       expect(@board.check_winner).to eq('o')
+    end
+
+    xit 'diagional victory' do
+      @board.drop_disc(0,'x')
+      @board.drop_disc(1,'o')
+      @board.drop_disc(1,'x')
+      2.times { @board.drop_disc(2,'o') }
+      @board.drop_disc(2,'x')
+      3.times { @board.drop_disc(3,'o') }
+      @board.drop_disc(3, 'x')
+      @board.display_board
+
+      expect(@board.check_winner).to eq('x')
     end
   end
 end
