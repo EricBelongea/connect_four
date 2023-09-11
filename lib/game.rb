@@ -41,6 +41,7 @@ class Game
       end
       if @board.check_full == true
         puts "Draw!"
+        break
       end
 
       ###Computers turn###
@@ -52,6 +53,7 @@ class Game
       end
       if @board.check_full == true
         puts "Draw!"
+        break
       end
     end
   end
