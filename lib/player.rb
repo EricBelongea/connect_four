@@ -16,13 +16,13 @@ class Player
   def player_turn(board)
     puts "Choose which column A-G to place your piece."
     column = gets.chomp.upcase
-    integer = index_column(column)
-    p integer
-    if @board.valid_column(column) == true
-      board.drop_disc(integer, @player_piece)
-    else
-      return "Please choose a column A-G."
+    until @board.valid_column(column) == true
+      puts "Choose which column A-G to place your piece."
+      column = gets.chomp.upcase
     end
+    integer = index_column(column)
+    #p integer
+    board.drop_disc(integer, @player_piece)
   end
 
   # def index_column(column)
