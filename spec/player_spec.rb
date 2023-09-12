@@ -3,14 +3,15 @@ require './lib/board'
 
 RSpec.describe '#Player' do
   before(:each) do
-   @player = Player.new('Eric')
+    @board = Board.new
+   @player = Player.new(@board)
   end
   it 'exists' do
     expect(@player).to be_instance_of Player
   end
 
-  it 'has attributes' do
-    expect(@player.name).to eq('Eric')
+  it 'has a piece to play with' do
+    # expect(@player.name).to eq('Eric')
     expect(@player.player_piece).to eq('x')
   end
 

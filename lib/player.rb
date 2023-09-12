@@ -1,8 +1,6 @@
 require_relative "indexable"
 require_relative 'board'
 
-
-
 class Player
   include Indexable
   attr_reader :name, :player_piece
