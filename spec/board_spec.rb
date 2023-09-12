@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 require './lib/cell'
 require './lib/board'
 
