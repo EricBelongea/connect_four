@@ -30,9 +30,9 @@ class Board
       if @grid[row][column] != '.'
         return false
       else
-      @grid[row][column] = disc
-      @last_move = [row, column]
-      return true
+        @grid[row][column] = disc
+        @last_move = [row, column]
+        return true
       end
     end
   end

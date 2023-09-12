@@ -20,7 +20,11 @@ RSpec.describe "#Board set up" do
     expect(@board.respond_to?('display_board')).to be true
   end
 
-  # when column > 7 discs it should return false
+  it 'knows when column is full' do
+    5.times { @board.drop_disc(3,'x') }
+    expect(@board.drop_disc(3,'x')).to be true
+    # expect(@board.drop_disc(3,'x')).to be false
+  end
 
   it 'can validate column' do
     expect(@board.valid_column('A')).to be true
@@ -115,6 +119,19 @@ RSpec.describe "#Board set up" do
       2.times { @board.drop_disc(2,'o') }
       @board.drop_disc(2,'x')
       3.times { @board.drop_disc(3,'o') }
+      @board.drop_disc(3,'x')
+      @board.display_board
+
+      expect(@board.check_winner).to eq('x')
+    end
+
+    it 'diagonal victory top down' do
+      3.times { @board.drop_disc(0,'o') }
+      @board.drop_disc(0,'x')
+      2.times { @board.drop_disc(1,'o') }
+      @board.drop_disc(1,'x')
+      @board.drop_disc(2,'o')
+      @board.drop_disc(2,'x')
       @board.drop_disc(3,'x')
       @board.display_board
 
