@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 require './lib/player'
 require './lib/board'
 
