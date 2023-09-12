@@ -13,12 +13,11 @@ class Game
     @start = nil
     @finish = nil
   end
-  puts "--------------------"
-  puts "Welcome to our game,"
+  puts "---------------------------------"
+  puts "Welcome to our game, Quad Connect™"
+  puts "---------------------------------"
   def play
     @board.default_board
-    puts "More Four?™"
-    puts "----------"
     puts "Press 'P' to play, or press 'Q' to quit"
     wanna_play = gets.chomp.downcase
     puts " "
@@ -74,6 +73,11 @@ class Game
     end
     total_time = @finish.to_i - @start.to_i
     puts "It took you #{total_time} seconds to play this game."
+    # puts " "
+    puts "------------------------------"
+    puts "Don't disconnect, Quad Connect™!"
+    puts "------------------------------"
+    puts "Play again?"
     puts " "
     play
   end
