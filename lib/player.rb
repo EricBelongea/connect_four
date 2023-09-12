@@ -6,7 +6,7 @@ class Player
   attr_reader :name, :player_piece
 
   def initialize(board)
-    @name = name
+    @name = nil
     @player_piece = 'x'
     @board = board
   end
@@ -25,5 +25,9 @@ class Player
       integer = index_column(column)
     end
     board.drop_disc(integer, @player_piece)
+  end
+
+  def assign_player_name(name)
+    @name = name
   end
 end

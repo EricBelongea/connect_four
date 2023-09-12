@@ -35,9 +35,10 @@ class Game
     @board.display_board
     puts "Please enter your player name below"
     name = gets.chomp.capitalize
+    @player.assign_player_name(name)
     @start = Time.now
     loop do
-      puts "#{name}, it's now your turn!"
+      puts "#{@player.name}, it's now your turn!"
       # require'pry';binding.pry
       @player.player_turn(@board)
       @board.display_board
