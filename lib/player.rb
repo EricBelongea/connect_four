@@ -1,8 +1,5 @@
 require_relative "indexable"
-require_relative 'board'  it 'knows when column is full' do
-  5.times { @board.drop_disc(3,'x') }
-  expect(@board.drop_disc(3,'x')).to be true
-end
+require_relative 'board'  
 
 class Player
   include Indexable
