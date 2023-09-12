@@ -1,15 +1,12 @@
 require_relative "indexable"
-require_relative 'board'  it 'knows when column is full' do
-  5.times { @board.drop_disc(3,'x') }
-  expect(@board.drop_disc(3,'x')).to be true
-end
+require_relative 'board'  
 
 class Player
   include Indexable
   attr_reader :name, :player_piece
 
   def initialize(board)
-    @name = name
+    @name = nil
     @player_piece = 'x'
     @board = board
   end
@@ -28,5 +25,9 @@ class Player
       integer = index_column(column)
     end
     board.drop_disc(integer, @player_piece)
+  end
+
+  def assign_player_name(name)
+    @name = name
   end
 end
