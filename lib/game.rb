@@ -13,13 +13,15 @@ class Game
     @start = nil
     @finish = nil
   end
-
+  puts "--------------------"
+  puts "Welcome to our game,"
   def play
     @board.default_board
-    puts "Welcome to our Connect Four Game"
-    puts "--------------------------------"
+    puts "More Four?™"
+    puts "----------"
     puts "Press 'P' to play, or press 'Q' to quit"
     wanna_play = gets.chomp.downcase
+    puts " "
     while wanna_play != 'p' && wanna_play != 'q'
       puts "Press 'P' to play, or press 'Q' to quit"
       wanna_play = gets.chomp.downcase
@@ -36,7 +38,7 @@ class Game
     name = gets.chomp.capitalize
     @start = Time.now
     loop do
-      puts "#{name} it's now your turn!"
+      puts "#{name}, it's now your turn!"
       # require'pry';binding.pry
       @player.player_turn(@board)
       @board.display_board
