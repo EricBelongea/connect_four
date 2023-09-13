@@ -35,7 +35,31 @@ RSpec.describe '#Player' do
 
   it 'can index columns' do
     column = 'A'
-    integer = index_column('A')
+    integer = index_column(column)
     expect(integer).to eq(0)
+
+    column = 'B'
+    integer = index_column(column)
+    expect(integer).to eq(1)
+
+    column = 'C'
+    integer =index_column(column)
+    expect(integer).to eq(2)
+
+    column = 'D'
+    integer =index_column(column)
+    expect(integer).to eq(3)
+
+    column = 'E'
+    integer =index_column(column)
+    expect(integer).to eq(4)
+
+    column = 'F'
+    integer =index_column(column)
+    expect(integer).to eq(5)
+
+    column = 'G'
+    integer =index_column(column)
+    expect(integer).to eq(6)
   end
 end
