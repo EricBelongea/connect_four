@@ -2,6 +2,8 @@ require 'simplecov'
 SimpleCov.start
 require './lib/player'
 require './lib/board'
+require './lib/indexable'
+include Indexable
 
 RSpec.describe '#Player' do
   before(:each) do
@@ -29,5 +31,11 @@ RSpec.describe '#Player' do
   it 'has valid columns' do
     expect(@board.valid_column("A")).to be true
     expect(@board.valid_column("H")).to be false
+  end
+
+  it 'can index columns' do
+    column = 'A'
+    integer = index_column('A')
+    expect(integer).to eq(0)
   end
 end
