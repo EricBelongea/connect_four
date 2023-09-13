@@ -40,7 +40,6 @@ class Game
     loop do
       puts "#{@player.name}, it's now your turn!"
       @player.player_turn(@board)
-      # require'pry';binding.pry
       @board.display_board
       if @board.check_winner == 'x'
         puts " "

@@ -2,6 +2,8 @@ require 'simplecov'
 SimpleCov.start
 require './lib/computer'
 require './lib/board'
+require './lib/indexable'
+include Indexable
 
 
 RSpec.describe '#computer' do
@@ -36,9 +38,9 @@ RSpec.describe '#computer' do
     expect(@board.columns.include?(column)).to be true
   end
 
-  # it 'can index a column' do
-  #   # column = @board.columns.sample
-  #   integer = index_column('A')
-  #   expect(integer).to eq(0)
-  # end
+  it 'can index columns' do
+    column = 'A'
+    integer = index_column('A')
+    expect(integer).to eq(0)
+  end
 end
