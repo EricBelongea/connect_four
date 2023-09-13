@@ -1,6 +1,5 @@
 require 'simplecov'
 SimpleCov.start
-# require 'pry'
 require './lib/board'
 
 RSpec.describe "#Board set up" do
@@ -12,8 +11,7 @@ RSpec.describe "#Board set up" do
   end
 
   it 'has attributes/ visual test' do
-    expect(@board.grid).to eq(@board.display_board)
-    require'pry';binding.pry
+    expect(@board.grid).to eq(@board.display_board)    
     expect(@board.grid).to be_instance_of Array
     expect(@board.columns).to eq(["A", "B", "C", "D", "E", "F", "G"])
   end
