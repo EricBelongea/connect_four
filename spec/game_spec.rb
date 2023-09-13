@@ -6,6 +6,7 @@ RSpec.describe "#Game" do
   before(:each) do
     @game = Game.new
     @board = Board.new
+    @player = Player.new(@board)
   end
 
   it 'exists' do
@@ -51,6 +52,12 @@ RSpec.describe "#Game" do
       6.times { @board.drop_disc(6,'x') }
       
       expect(@board.check_full).to be true
+    end
+  end
+
+  describe "#Player" do
+    it 'can assign a name' do
+      expect(@player.assign_player_name("Eric")).to eq(@player.name)
     end
   end
 
