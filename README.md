@@ -5,7 +5,7 @@
 ### Reflection Points
 1. This project did not provide an interaction pattern. How did you approach the design and problem solving process for this project?
 
-- For us we had to take time to understand what we wanted our finished product to look like and then work backwards from there. We knew that we wanted a board and had to think about how we wanted to create that. Objects, Arrays of arrays, arrays of hashes, matrix? We also had to think about how our design choices might affect us further down the line. We found it hard to write Rspec TDD, so a lot of the testing was trial and error in a pry session. We wanted to test whether our gets statements were working and found that mocks and stubs were a possible solution, but we were unable to impliment them. 
+- For us we had to take time to understand what we wanted our finished product to look like and then work backwards from there. We knew that we wanted a board and had to think about how we wanted to create that. Objects, arrays of hashes, matrix? We also had to think about how our design choices might affect us further down the line. We found it hard to write Rspec TDD, so a lot of the testing was trial and error in a pry session. We wanted to test whether our gets statements were working and found that mocks and stubs were a possible solution, but we were unable to impliment them. 
 
 2. If you had one more day to work on this project, what would you work on?
 
