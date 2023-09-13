@@ -6,19 +6,28 @@ require './lib/board'
 RSpec.describe '#Player' do
   before(:each) do
     @board = Board.new
-   @player = Player.new(@board)
+    @player = Player.new(@board)
   end
   it 'exists' do
     expect(@player).to be_instance_of Player
   end
 
   it 'has a piece to play with' do
-    # expect(@player.name).to eq('Eric')
     expect(@player.player_piece).to eq('x')
   end
 
   it 'will respond to method' do
+    # require'pry';binding.pry
     expect(@player.respond_to?('player_turn')).to be true
-    # I wanna find a way to test if the method recieves user input (I know it does in pry)
+  end
+
+  it 'can assign a name' do
+    @player.assign_player_name('Eric')
+    expect(@player.name).to eq('Eric')
+  end
+
+  it 'has valid columns' do
+    expect(@board.valid_column("A")).to be true
+    expect(@board.valid_column("H")).to be false
   end
 end

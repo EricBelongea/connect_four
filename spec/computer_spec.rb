@@ -3,6 +3,7 @@ SimpleCov.start
 require './lib/computer'
 require './lib/board'
 
+
 RSpec.describe '#computer' do
   before(:each) do
     @board = Board.new
@@ -14,6 +15,7 @@ RSpec.describe '#computer' do
 
   it 'stores attributes' do
     expect(@computer.piece).to eq('o')
+    expect(@computer.board).to eq(@board)
   end
 
   it 'responds to method' do
@@ -33,4 +35,10 @@ RSpec.describe '#computer' do
     puts column
     expect(@board.columns.include?(column)).to be true
   end
+
+  # it 'can index a column' do
+  #   # column = @board.columns.sample
+  #   integer = index_column('A')
+  #   expect(integer).to eq(0)
+  # end
 end

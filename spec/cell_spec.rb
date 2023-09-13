@@ -9,6 +9,7 @@ RSpec.describe '#Cell' do
   end
 
   it 'has a default state' do
+    # require'pry';binding.pry
     expect(@cell.state).to eq(".")
   end
 
