@@ -1,37 +1,62 @@
 require 'simplecov'
 SimpleCov.start
-require './lib/cell'
 require './lib/board'
 
 RSpec.describe "#Board set up" do
   before(:each) do
     @board = Board.new
-    @cell = Cell.new
   end
   it 'exists' do
     expect(@board).to be_instance_of Board
   end
 
   it 'has attributes/ visual test' do
-    expect(@board.grid).to eq(@board.display_board)
+    expect(@board.grid).to eq(@board.display_board)    
     expect(@board.grid).to be_instance_of Array
     expect(@board.columns).to eq(["A", "B", "C", "D", "E", "F", "G"])
   end
-
+  
   it "board class responds to display" do
     expect(@board.respond_to?('display_board')).to be true
   end
+  
+  it 'has a defaul board' do
+    expect(@board.default_board).to eq(@board.grid)
+  end
+  describe "#Drop_Disc" do
+    it 'drop disc is not full' do
+      # require'pry';binding.pry
+      expect(@board.drop_disc(3,'x')).to be true
+    end
+    
+    it 'drop disc is full' do
+      5.times { @board.drop_disc(3,'x') }
+      # require'pry';binding.pry
+      expect(@board.drop_disc(3,'x')).to be true
+    end
 
-  it 'knows when column is full' do
-    5.times { @board.drop_disc(3,'x') }
-    expect(@board.drop_disc(3,'x')).to be true
-    # expect(@board.drop_disc(3,'x')).to be false
+    it 'drop disc is full' do
+      5.times { @board.drop_disc(3,'x') }
+      expect(@board.drop_disc(3,'x')).to be true
+    end
   end
 
-  it 'can validate column' do
-    expect(@board.valid_column('A')).to be true
-    expect(@board.valid_column('H')).to be false
+  describe "#Column Full" do
+    it 'column full?' do
+      5.times { @board.drop_disc(3,'x') }
+      expect(@board.column_full(3)).to be false
+      # @board.drop_disc(3,'x')
+      # @board.drop_disc(3,'x')
+      # # require'pry';binding.pry
+      # expect(@board.column_full(3)).to be true
+    end
+    it 'can validate column' do
+      expect(@board.valid_column('A')).to be true
+      expect(@board.valid_column('H')).to be false
+    end
   end
+  
+  
 
   describe '#Placing Pieces' do
 
@@ -136,7 +161,7 @@ RSpec.describe "#Board set up" do
       @board.drop_disc(2,'x')
       @board.drop_disc(3,'x')
       @board.display_board
-
+      # require'pry';binding.pry
       expect(@board.check_winner).to eq('x')
     end
   end

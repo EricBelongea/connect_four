@@ -22,6 +22,7 @@ class Board
         return true
       end
     end
+    # return false
   end
 
   def drop_disc(column, disc)
@@ -35,6 +36,7 @@ class Board
         return true
       end
     end
+    # return false
   end
 
   def display_board
@@ -81,7 +83,7 @@ class Board
   
   def check_vertical
     # Check for a vertical win
-    (0...7).each do |col|
+    (0...6).each do |col|
       count = 0
       current_disc = nil
   
@@ -102,7 +104,7 @@ class Board
   def check_diagonal
     # Check diagonal wins in both directions
   
-    # Check diagonal going downwards (left to right)
+    # Check diagonal going upwards (left to right)
     (0..2).each do |row|
       (0..3).each do |col|
         if @grid[row][col] != '.' &&
@@ -114,7 +116,7 @@ class Board
       end
     end
   
-    # Check diagonal going upwards (left to right)
+    # Check diagonal going downwards (left to right)
     (3..5).each do |row|
       (0..3).each do |col|
         if @grid[row][col] != '.' &&
@@ -125,8 +127,6 @@ class Board
         end
       end
     end
-  
     nil
   end
-   
 end

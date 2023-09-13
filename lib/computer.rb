@@ -2,7 +2,7 @@ require_relative 'indexable'
 
 class Computer
   include Indexable
-  attr_reader :piece
+  attr_reader :piece, :board
 
   def initialize(board)
     @piece = 'o'
