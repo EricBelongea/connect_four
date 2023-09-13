@@ -22,7 +22,12 @@ class Player
     until @board.column_full(integer) == false
       puts "This column is full. Select another column."
       column = gets.chomp.upcase
-      integer = index_column(column)
+      until @board.valid_column(column) == true
+        puts "Choose which column A-G to place your piece."
+        column = gets.chomp.upcase
+      end
+      # column = gets.chomp.upcase
+    integer = index_column(column)
     end
     board.drop_disc(integer, @player_piece)
   end

@@ -81,7 +81,7 @@ class Board
   
   def check_vertical
     # Check for a vertical win
-    (0...7).each do |col|
+    (0...6).each do |col|
       count = 0
       current_disc = nil
   
