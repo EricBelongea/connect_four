@@ -1,6 +1,10 @@
 # Quad Connect™ - Pair Project
 ### Overview
+  This was our first attempt at building a Connect Four style game. For this project we were given a list of functionalities that the game should have at the end. So this is us riding a bike without training wheels for the first time. I found the design aspect to be really interesting and there's a lot one must do in order to get all the moving pieces working together. 
 
+### Gem Use
+1. Type `gem install quad_connect` anywhere in your terminal. (Must be a Rubyist)
+2. To play, type `quad_connect` wherevers clever!
 
 ### Reflection Points
 1. This project did not provide an interaction pattern. How did you approach the design and problem solving process for this project?
