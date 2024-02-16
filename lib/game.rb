@@ -33,7 +33,9 @@ class Game
           playing on."
     puts " "
     @board.display_board
+    puts "--------------------------------"
     puts "Please enter your player name below"
+    puts "--------------------------------"
     name = gets.chomp.capitalize
     @player.assign_player_name(name)
     @start = Time.now
