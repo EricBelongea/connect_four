@@ -16,7 +16,6 @@ class Computer
     until @board.valid_column(column) == true
       column = @board.columns.sample
     end
-    #if @board.valid_column(column) == true && @board.column_full(integer) == false
     integer = index_column(column)
     until @board.column_full(integer) == false
       column = @board.columns.sample

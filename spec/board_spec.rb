@@ -45,10 +45,7 @@ RSpec.describe "#Board set up" do
     it 'column full?' do
       5.times { @board.drop_disc(3,'x') }
       expect(@board.column_full(3)).to be false
-      # @board.drop_disc(3,'x')
-      # @board.drop_disc(3,'x')
-      # # require'pry';binding.pry
-      # expect(@board.column_full(3)).to be true
+      # require'pry';binding.pry
     end
     it 'can validate column' do
       expect(@board.valid_column('A')).to be true

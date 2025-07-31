@@ -22,7 +22,6 @@ class Board
         return true
       end
     end
-    # return false
   end
 
   def drop_disc(column, disc)
@@ -36,7 +35,6 @@ class Board
         return true
       end
     end
-    # return false
   end
 
   def display_board

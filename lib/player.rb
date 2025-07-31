@@ -26,7 +26,6 @@ class Player
         puts "Choose which column A-G to place your piece."
         column = gets.chomp.upcase
       end
-      # column = gets.chomp.upcase
     integer = index_column(column)
     end
     board.drop_disc(integer, @player_piece)

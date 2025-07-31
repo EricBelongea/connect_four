@@ -88,7 +88,6 @@ class Game
     end
     total_time = @finish.to_i - @start.to_i
     puts "It took you #{total_time} seconds to play this game."
-    # puts " "
     puts "------------------------------------"
     puts "  Don't disconnect, Quad Connect™!"
     puts "------------------------------------"
